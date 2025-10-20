@@ -1,0 +1,28 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 22
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS JoyousSpring "src/others/PokerHands.lua"]'
+pattern = '''
+for _, joker in ipairs(SMODS.find_card("j_joy_vw_longlong")) do
+	if JoyousSpring.can_use_abilities(joker) and joker.ability.extra.active then
+		return true
+	end
+end
+'''
+position = 'after'
+payload = '''
+for _, card in ipairs(G.jokers.cards) do
+	if card.ability.hsr_extra_effects then
+		for k, v in ipairs(card.ability.hsr_extra_effects) do
+			if v.key == "stckup_hypervisor" then
+				return true
+			end
+		end
+	end
+end
+'''
+match_indent = true
