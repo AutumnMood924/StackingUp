@@ -392,6 +392,63 @@ local kinoeffects = {
             end
         end,
     },
+	stckup_everfrost = countermode and {
+		type = {"passive", "cursed"},
+        ability = {value = 2, boost = 0.20, min_possible = 1, max_possible = 4},
+        loc_vars = function(info_queue, card, ability_table)
+			info_queue[#info_queue+1] = Blockbuster.Counters.Counters["counter_frost"]
+			local frosts = 0
+			if G.hand then
+				for k,v in ipairs(G.hand.cards) do
+					if Blockbuster.Counters.is_counter(v, "counter_frost") then
+						frosts = frosts + Blockbuster.Counters.get_counter_num(v)
+					end
+				end
+			end
+            return {vars = {
+				ability_table.boost * 100,
+				ability_table.boost * 100 * frosts,
+				ability_table.value == 1 and "a" or ability_table.value,
+				ability_table.value == 1 and "" or "s",
+			},
+			background_colour = lighten(G.C.SECONDARY_SET.Tarot, StackingUp.bg_contrast)}
+        end,
+        randomize_values = function(card, ability_table)
+			StackingUp.func.randvalue_default(card, ability_table)
+		end,
+        update_values = function(card, ability_table)
+			StackingUp.func.updvalue_whole(card, ability_table)
+		end,
+        calculate = function(card, context, ability_table, ability_index)
+            if context.joker_buff then
+				local frosts = 0
+				if G.hand then
+					for k,v in ipairs(G.hand.cards) do
+						if Blockbuster.Counters.is_counter(v, "counter_frost") then
+							frosts = frosts + Blockbuster.Counters.get_counter_num(v)
+						end
+					end
+				end
+				if frosts < 1 then return end
+				return {
+					buff = 1 + (ability_table.boost * frosts)
+				}
+            end
+			if context.after and #G.hand.cards > 0 and not context.blueprint then
+				for i = 1, ability_table.value do
+					local _target = pseudorandom_element(G.hand.cards, card.config.center_key.."_"..ability_table.pseed)
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.03, func = function()
+						card:juice_up()
+						return true end
+					}))
+					_target:bb_counter_apply("counter_frost", 1)
+				end
+            end
+        end,
+        in_pool = function(card)
+            return not not G.GAME.cursed_effects_enable
+        end,
+	},
 }
 
 return kinoeffects

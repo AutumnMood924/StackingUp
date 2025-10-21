@@ -484,6 +484,17 @@ return {
 				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
             },
         },
+		stckup_everfrost = {
+			name = "Everfrost",
+            text = {
+                "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for each",
+				"{C:attention}Frost Counter{} on cards held in hand",
+				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
+				"{s:0.15} ",
+				"Put a {C:attention}Frost Counter{} on {C:attention}#3#{} random card#4#",
+				"held in hand after {C:blue}Hand{} is played",
+            },
+		},
 		
 		-- CrossMod/Maximus.lua
 		stckup_horoscopeslot = {
