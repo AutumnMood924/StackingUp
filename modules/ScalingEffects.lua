@@ -53,12 +53,12 @@ local scalingeffects = {
 		randomize_values = function(card, ability_table)
 			ability_table.quality = AMM.api.cardqualities.random(pseudoseed(card.config.center.key.."_"..ability_table.pseed))
 			StackingUp.func.randvalue_tenths(card, ability_table)
-			ability_table.value = cardquality_value(ability_table.value, ability_table.quality)
+			ability_table.value = StackingUp.func.cardquality_value(ability_table.value, ability_table.quality)
 			ability_table.value = Stacked.round(ability_table.value, 1)
 		end,
 		update_values = function(card, ability_table)
 			StackingUp.func.updvalue_tenths(card, ability_table)
-			ability_table.value = cardquality_value(ability_table.value, ability_table.quality)
+			ability_table.value = StackingUp.func.cardquality_value(ability_table.value, ability_table.quality)
 			ability_table.value = Stacked.round(ability_table.value, 1)
 		end,
 		calculate = function(card, context, ability_table, ability_index)
