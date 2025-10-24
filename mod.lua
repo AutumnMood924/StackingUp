@@ -146,6 +146,7 @@ local effects = {
 }
 
 if next(SMODS.find_mod("GrabBag")) then effects[#effects+1] = NFS.load(StackingUp.mod.path.."modules/CrossMod/GrabBag.lua")() end
+if next(SMODS.find_mod("HotPotato")) then effects[#effects+1] = NFS.load(StackingUp.mod.path.."modules/CrossMod/HotPotato.lua")() end
 if next(SMODS.find_mod("JoyousSpring")) then effects[#effects+1] = NFS.load(StackingUp.mod.path.."modules/CrossMod/JoyousSpring.lua")() end
 if next(SMODS.find_mod("Maximus")) then effects[#effects+1] = NFS.load(StackingUp.mod.path.."modules/CrossMod/Maximus.lua")() end
 if next(SMODS.find_mod("MoreFluff")) then effects[#effects+1] = NFS.load(StackingUp.mod.path.."modules/CrossMod/MoreFluff.lua")() end

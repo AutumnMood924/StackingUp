@@ -1,4 +1,9 @@
 return {
+	misc = {
+		v_dictionary = {
+			stckup_a_m_a_c_value = "+#1#%!",
+		},
+	},
 	ExtraEffectTypes = {
 		-- Chain: For context.post_trigger effects
 		chain = "Chain",
@@ -337,6 +342,69 @@ return {
             text = {
                 "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for",
 				"every {C:inactive}Ephemeral Card{} used this run",
+				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
+            },
+        },
+		
+		-- CrossMod/HotPotato.lua
+        stckup_ad_combo = {
+            name = "{C:hpot_advert}Ad{} Combo",
+            text = {
+                "{C:hpot_advert}+#1# Ad#2#{} when",
+				"this {C:attention}Joker{} triggers"
+            },
+        },
+        stckup_plincoin_combo = {
+            name = "{f:hpot_plincoin,C:hpot_plincoin}$lincoin{} Combo",
+            text = {
+                "{C:hpot_plincoin}+#1#{f:hpot_plincoin,C:hpot_plincoin} $lincoin#2#{} when",
+				"this {C:attention}Joker{} triggers"
+            },
+        },
+        stckup_crypto_combo = {
+            name = "{f:hpot_plincoin,C:hpot_advert}£ryptocurrency{} Combo",
+            text = {
+                "{C:hpot_advert}+#1# {f:hpot_plincoin,X:hpot_advert,C:white}£{C:hpot_advert}ryptocurrency{} when",
+				"this {C:attention}Joker{} triggers"
+            },
+        },
+        stckup_jicks_combo = {
+            name = "{f:hpot_plincoin,C:blue}͸icks{} Combo",
+            text = {
+                "{C:blue}+#1#{f:hpot_plincoin,C:blue} ͸icks{} when",
+				"this {C:attention}Joker{} triggers"
+            },
+        },
+        stckup_plinko_force = {
+            name = "I'm {C:hpot_plincoin}Plinking{} It",
+            text = {
+                "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for",
+				"every {C:hpot_plincoin}Plinko{} played this run",
+				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
+            },
+        },
+        stckup_ad_force = {
+            name = "{C:hpot_advert}Ad{} Force",
+            text = {
+                "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for",
+				"every {C:hpot_advert}Ad{} open",
+				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
+            },
+        },
+        stckup_indecisiveness = {
+            name = "Indecisiveness",
+            text = {
+                "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for",
+				"every {C:attention}Delivery{} refunded while owned",
+				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
+            },
+        },
+        stckup_back_alley_window_shopper = {
+            name = "Back Alley Window Shopper",
+            text = {
+                "Joker gives {X:stck_m_a_c,C:white}#1#%{} more {C:chips}Chips{}/{C:mult}Mult{} for",
+				"every time the {C:hpot_advert}Black Market{} has",
+				"been rerolled while owned",
 				"{C:inactive}(Currently: {X:stck_m_a_c,C:white}#2#%{C:inactive} more Chips/Mult)",
             },
         },
